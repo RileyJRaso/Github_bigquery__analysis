@@ -1,4 +1,4 @@
-# Github Bigquery Analysis
+# Github bigQuery Analysis
 a python script for getting data from bigquery and display to user in a readable way
 
 # Steps to run script
