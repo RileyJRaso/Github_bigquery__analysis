@@ -28,13 +28,16 @@ def Display_Data(names, values):
 
 if __name__ == "__main__":
 
+    print("How many lanugages would you like to see (limit 15 Laugages)")
+    Limit = int(input())
+
     querystring = """
                   SELECT L.name, COUNT(*) AS `Total_Number_of_Repos`
                   FROM `bigquery-public-data.github_repos.languages`,
                   UNNEST(language) as L GROUP BY L.name
                   ORDER BY Total_Number_of_Repos DESC
-                  LIMIT 10
-                  """
+                  LIMIT """ + str(Limit)
+
     results = query_table(querystring)
 
     Fixed_Results = Create_Array(results)
