@@ -23,7 +23,12 @@ def Create_Array(results):
     return Results_In_Array
 
 def Display_Data(names, values):
+
     plt.bar(names, values)
+    plt.xlabel('Languages')
+    plt.ylabel('Number of Repos')
+    plt.title("Top Languages used in Github")
+    #plt.legend() might use if useful
     plt.show()
 
 if __name__ == "__main__":
