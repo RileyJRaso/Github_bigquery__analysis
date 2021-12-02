@@ -31,6 +31,11 @@ if __name__ == "__main__":
     print("How many lanugages would you like to see (limit 15 Laugages)")
     Limit = int(input())
 
+    # input validation for user input (input is also cast as an int so that SQL injection attacks will not work)
+    while Limit > 15 or Limit < 0:
+        print("Improper input please provide a number between 15 and 0")
+        Limit = int(input())
+
     querystring = """
                   SELECT L.name, COUNT(*) AS `Total_Number_of_Repos`
                   FROM `bigquery-public-data.github_repos.languages`,
