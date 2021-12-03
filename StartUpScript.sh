@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#setting up global variables
 input="Pathtojson.txt"
 while IFS= read -r line
 do
@@ -7,4 +8,8 @@ do
   echo "$line was added as the path to your GOOGLE_APPLICATION_CREDENTIALS"
 done < "$input"
 
-python Query_Script.py 
+#installing libraries
+pip install --upgrade google-cloud-bigquery
+pip install matplotlib
+
+python Query_Script.py
