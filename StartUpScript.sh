@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "----------------- Setting up environment -----------------"
+
 #setting up global variables
 input="Pathtojson.txt"
 while IFS= read -r line
@@ -12,4 +14,5 @@ done < "$input"
 pip install --upgrade google-cloud-bigquery
 pip install matplotlib
 
+echo "----------------- Program ready to run -----------------"
 python Query_Script.py
