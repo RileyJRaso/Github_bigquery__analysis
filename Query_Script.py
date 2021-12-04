@@ -10,15 +10,15 @@ def query_table(querystring):
 
     return results
 
-def Create_Array(results):
-    Names = []
-    Values = []
+def Create_Results_Array(results, X_data, Y_data):
+    x_axis = []
+    y_axis = []
 
     for row in results:
-        Names.append(row.name)
-        Values.append(row.Total_Number_of_Repos)
+        x_axis.append(row[X_data])
+        y_axis.append(row[Y_data])
 
-    Results_In_Array = [Names, Values]
+    Results_In_Array = [x_axis, y_axis]
 
     return Results_In_Array
 
@@ -50,6 +50,6 @@ if __name__ == "__main__":
 
     results = query_table(querystring)
 
-    Fixed_Results = Create_Array(results)
+    Fixed_Results = Create_Results_Array(results, "name", "Total_Number_of_Repos")
 
     Display_Data(Fixed_Results[0], Fixed_Results[1])
