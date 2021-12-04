@@ -31,9 +31,9 @@ def Display_Data(names, values):
     #plt.legend() might use if useful
     plt.show()
 
-if __name__ == "__main__":
+def Show_Total_Repo_By_Language():
 
-    print("How many lanugages would you like to see (limit 15 Laugages)")
+    print("How many languages would you like to see (limit 15 languages)")
     Limit = int(input())
 
     # input validation for user input (input is also cast as an int so that SQL injection attacks will not work)
@@ -53,3 +53,20 @@ if __name__ == "__main__":
     Fixed_Results = Create_Results_Array(results, "name", "Total_Number_of_Repos")
 
     Display_Data(Fixed_Results[0], Fixed_Results[1])
+
+def option_Select():
+
+    print("\nWhat would you like to know? Select from the following options:\n\n")
+    print("Enter \"languages\" for: A graph of top Github languages calculated by amount of Repos where language X is the main language of that Repo\n\n")
+
+    option = str(input())
+
+    if(option == "languages"):
+        Show_Total_Repo_By_Language()
+    else:
+        print("I'm sorry that option isn't implemented yet please enter another option")
+        option_Select()
+
+if __name__ == "__main__":
+
+    option_Select()
