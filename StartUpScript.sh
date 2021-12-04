@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "----------------- Setting up environment -----------------"
+printf "\n\n----------------- Setting up environment -----------------\n\n"
 
 #setting up global variables
 input="Pathtojson.txt"
@@ -14,5 +14,5 @@ done < "$input"
 pip install --upgrade google-cloud-bigquery
 pip install matplotlib
 
-echo "----------------- Program ready to run -----------------"
+printf "\n\n----------------- Program ready to run -----------------\n\n"
 python Query_Script.py
