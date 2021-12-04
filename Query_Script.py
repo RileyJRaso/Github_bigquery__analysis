@@ -22,12 +22,12 @@ def Create_Results_Array(results, X_data, Y_data):
 
     return Results_In_Array
 
-def Display_Data(names, values):
+def Display_Data(names, values, x_label, y_label, Title):
 
     plt.bar(names, values)
-    plt.xlabel('Languages')
-    plt.ylabel('Number of Repos')
-    plt.title("Top Languages used in Github")
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(Title)
     #plt.legend() might use if useful
     plt.show()
 
@@ -52,17 +52,42 @@ def Show_Total_Repo_By_Language():
 
     Fixed_Results = Create_Results_Array(results, "name", "Total_Number_of_Repos")
 
-    Display_Data(Fixed_Results[0], Fixed_Results[1])
+    Display_Data(Fixed_Results[0], Fixed_Results[1], 'Languages', 'Number of Repos', "Top Languages used in Github")
+
+def Show_Most_Commits_By_Person():
+
+    print("How many people you would like to see (limit 15 people)")
+    Limit = int(input())
+
+    # input validation for user input (input is also cast as an int so that SQL injection attacks will not work)
+    while Limit > 15 or Limit < 0:
+        print("Improper input please provide a number between 15 and 0")
+        Limit = int(input())
+
+    querystring = """
+                  SELECT author.name , COUNT(*) AS `Total_Number_of_Commits`
+                  FROM `bigquery-public-data.github_repos.sample_commits`
+                  GROUP BY author.name ORDER BY Total_Number_of_Commits DESC
+                  LIMIT """ + str(Limit)
+
+    results = query_table(querystring)
+
+    Fixed_Results = Create_Results_Array(results, "name", "Total_Number_of_Commits")
+
+    Display_Data(Fixed_Results[0], Fixed_Results[1], 'Name of Person', 'Number of Commits', "Top Committers of Github (from sample data)")
 
 def option_Select():
 
     print("\nWhat would you like to know? Select from the following options:\n\n")
     print("Enter \"languages\" for: A graph of top Github languages calculated by amount of Repos where language X is the main language of that Repo\n\n")
+    print("Enter \"Commiters\" for: A graph of top Github Commiters calculated by amount of Commits from a sample of total commits to Github, IMPORTANT this is done on a sample not all commits so results might not reflect the real top Committers of Github \n\n")
 
     option = str(input())
 
     if(option == "languages"):
         Show_Total_Repo_By_Language()
+    if(option == "Commiters"):
+        Show_Most_Commits_By_Person()
     else:
         print("I'm sorry that option isn't implemented yet please enter another option")
         option_Select()
