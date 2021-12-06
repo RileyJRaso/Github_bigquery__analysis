@@ -3,7 +3,7 @@ a python script for getting data from bigquery and display to user in a readable
 
 # Installation
 
-in order to get the scripts run: https://github.com/RileyJRaso/Github_bigquery__analysis.git
+in order to get the scripts run: git clone https://github.com/RileyJRaso/Github_bigquery__analysis.git
 
 important: all other libraries are installed with start up script, make sure you run the script in order to run the python code
 
