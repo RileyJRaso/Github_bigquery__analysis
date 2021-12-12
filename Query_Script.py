@@ -79,15 +79,18 @@ def Show_Most_Commits_By_Person():
 def option_Select():
 
     print("\nWhat would you like to know? Select from the following options:\n\n")
-    print("Enter \"languages\" for: A graph of top Github languages calculated by amount of Repos where language X is the main language of that Repo\n\n")
-    print("Enter \"Commiters\" for: A graph of top Github Commiters calculated by amount of Commits from a sample of total commits to Github, IMPORTANT this is done on a sample not all commits so results might not reflect the real top Committers of Github \n\n")
+    print("Enter \"Languages\" for: A graph of top Github languages calculated by amount of Repos where language X is the main language of that Repo\n")
+    print("Enter \"Commiters\" for: A graph of top Github Commiters calculated by amount of Commits from a sample of total commits to Github, IMPORTANT this is done on a sample not all commits so results might not reflect the real top Committers of Github \n")
+    print("Enter \"Exit\" to end program\n")
 
     option = str(input())
 
-    if(option == "languages"):
+    if(option == "Languages"):
         Show_Total_Repo_By_Language()
     if(option == "Commiters"):
         Show_Most_Commits_By_Person()
+    if(option == "Exit"):
+        pass
     else:
         print("I'm sorry that option isn't implemented yet please enter another option")
         option_Select()
