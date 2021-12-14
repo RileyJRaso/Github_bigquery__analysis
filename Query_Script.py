@@ -135,5 +135,5 @@ def option_Select():
 
 if __name__ == "__main__":
 
-    #option_Select()
-    Show_Tread_Of_Langauge()
+    option_Select()
+    #Show_Tread_Of_Langauge()
