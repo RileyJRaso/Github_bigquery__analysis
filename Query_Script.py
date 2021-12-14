@@ -1,5 +1,6 @@
 from google.cloud import bigquery
 import matplotlib.pyplot as plt
+from matplotlib.dates as mdates
 
 def query_table(querystring):
     BQclient = bigquery.Client()
