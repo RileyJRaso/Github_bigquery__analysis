@@ -31,6 +31,23 @@ def Display_Data(names, values, x_label, y_label, Title):
     #plt.legend() might use if useful
     plt.show()
 
+def Show_Tread_Of_Langauge():
+
+    querystring = """
+                  SELECT EXTRACT(DATE FROM author.date) AS commitdate, languages.ProgrammingLanguage as language, Count(*) AS Commits
+                  FROM `bigquery-public-data.github_repos.sample_commits` as commits
+                  INNER JOIN(
+                    SELECT repo_name, L.name as ProgrammingLanguage
+                    FROM `bigquery-public-data.github_repos.languages`,
+                    UNNEST(language) as L
+                    ) as languages
+                  ON commits.repo_name = languages.repo_name
+                  WHERE EXTRACT(DATE FROM author.date) between DATE_SUB('2015-04-10', INTERVAL 10 DAY) and '2015-04-10'
+                  AND languages.ProgrammingLanguage = 'Python'
+                  GROUP BY EXTRACT(DATE FROM author.date), languages.ProgrammingLanguage
+                  LIMIT 100
+                  """
+
 def Show_Total_Repo_By_Language():
 
     print("How many languages would you like to see (limit 15 languages)")
