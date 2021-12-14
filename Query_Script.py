@@ -32,7 +32,7 @@ def Display_Data_bar(names, values, x_label, y_label, Title):
     #plt.legend() might use if useful
     plt.show()
 
-def Display_Data_line(names, values, x_label, y_label, Title):
+def Display_Data_scatter(names, values, x_label, y_label, Title):
 
     plt.scatter(names, values)
     plt.xlabel(x_label)
