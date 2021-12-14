@@ -1,6 +1,7 @@
 from google.cloud import bigquery
+import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.dates as mdates
+import matplotlib.dates as mdates
 
 def query_table(querystring):
     BQclient = bigquery.Client()
@@ -62,7 +63,11 @@ def Show_Tread_Of_Langauge():
 
     Fixed_Results = Create_Results_Array(results, "commitdate", "Commits")
 
-    Display_Data_line(Fixed_Results[0], Fixed_Results[1], 'Dates', 'Number of Commits', "How many Commits of Language between 2015-03-30 and 2015-04-10")
+    Display_Data_scatter(Fixed_Results[0], Fixed_Results[1], 'Dates', 'Number of Commits', "How many Commits of Language between 2015-03-30 and 2015-04-10")
+
+    dates_as_nums = mdates.date2num(Fixed_Results[0])
+
+
 
 def Show_Total_Repo_By_Language():
 
@@ -130,5 +135,5 @@ def option_Select():
 
 if __name__ == "__main__":
 
-    option_Select()
-    #Show_Tread_Of_Langauge()
+    #option_Select()
+    Show_Tread_Of_Langauge()
