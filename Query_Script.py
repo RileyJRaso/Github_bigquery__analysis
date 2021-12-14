@@ -22,7 +22,7 @@ def Create_Results_Array(results, X_data, Y_data):
 
     return Results_In_Array
 
-def Display_Data(names, values, x_label, y_label, Title):
+def Display_Data_bar(names, values, x_label, y_label, Title):
 
     plt.bar(names, values)
     plt.xlabel(x_label)
@@ -30,6 +30,16 @@ def Display_Data(names, values, x_label, y_label, Title):
     plt.title(Title)
     #plt.legend() might use if useful
     plt.show()
+
+def Display_Data_line(names, values, x_label, y_label, Title):
+
+    plt.scatter(names, values)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(Title)
+    #plt.legend() might use if useful
+    plt.show()
+
 
 def Show_Tread_Of_Langauge():
 
@@ -47,6 +57,11 @@ def Show_Tread_Of_Langauge():
                   GROUP BY EXTRACT(DATE FROM author.date), languages.ProgrammingLanguage
                   LIMIT 100
                   """
+    results = query_table(querystring)
+
+    Fixed_Results = Create_Results_Array(results, "commitdate", "Commits")
+
+    Display_Data_line(Fixed_Results[0], Fixed_Results[1], 'Dates', 'Number of Commits', "How many Commits of Language between 2015-03-30 and 2015-04-10")
 
 def Show_Total_Repo_By_Language():
 
@@ -69,7 +84,7 @@ def Show_Total_Repo_By_Language():
 
     Fixed_Results = Create_Results_Array(results, "name", "Total_Number_of_Repos")
 
-    Display_Data(Fixed_Results[0], Fixed_Results[1], 'Languages', 'Number of Repos', "Top Languages used in Github")
+    Display_Data_bar(Fixed_Results[0], Fixed_Results[1], 'Languages', 'Number of Repos', "Top Languages used in Github")
 
 def Show_Most_Commits_By_Person():
 
@@ -91,7 +106,7 @@ def Show_Most_Commits_By_Person():
 
     Fixed_Results = Create_Results_Array(results, "name", "Total_Number_of_Commits")
 
-    Display_Data(Fixed_Results[0], Fixed_Results[1], 'Name of Person', 'Number of Commits', "Top Committers of Github (from sample data)")
+    Display_Data_bar(Fixed_Results[0], Fixed_Results[1], 'Name of Person', 'Number of Commits', "Top Committers of Github (from sample data)")
 
 def option_Select():
 
@@ -114,4 +129,5 @@ def option_Select():
 
 if __name__ == "__main__":
 
-    option_Select()
+    #option_Select()
+    Show_Tread_Of_Langauge()
