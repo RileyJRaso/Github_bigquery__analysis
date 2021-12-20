@@ -18,12 +18,15 @@ important: all other libraries are installed with start up script, make sure you
 
 in order to run user needs a file called: Pathtojson.txt which contains the path to the big query service account key
 
-Example of Pathtojson.txt:
-User/Downloads/File.txt
+Example of text to enter in Pathtojson.txt:
+User/Downloads/Pathtojson.txt
 
-once this file is made run the script by running the attached bash script:
+once this file is made run the script by running the attached bash script (in the folder with the script):
 
-./StartUpScript.sh (in the folder with the script)
+```bash
+./StartUpScript.sh
+
+```
 
 # Future plans
 
