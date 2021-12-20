@@ -14,8 +14,6 @@ in order to get the scripts run: git clone https://github.com/RileyJRaso/Github_
 
 important: all other libraries are installed with start up script, make sure you run the script in order to run the python code
 
-git clone 
-
 # Steps to run script
 
 in order to run user needs a file called: Pathtojson.txt which contains the path to the big query service account key
@@ -26,3 +24,11 @@ User/Downloads/File.txt
 once this file is made run the script by running the attached bash script:
 
 ./StartUpScript.sh (in the folder with the script)
+
+# Future plans
+
+the following are a list of ideas for future features and changes to the script:
+
+- add tableau dashboards for better communication to non-technical users
+- add more user input validation so the script doesn't break when someone enters something wrong
+- answer the question: what are the most committed repos?
