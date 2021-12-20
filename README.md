@@ -1,6 +1,6 @@
 # Github bigQuery Analysis
 
-a python script for getting data from bigquery and display to user in a readable way. 
+a python script for getting data from bigquery and displaying it to user in a readable way through the use of tables and graphs. the script asks the user what question they want the answer too and goes through the data analysis process of: getting the data, cleaning the data, manipulating the data, and finally showing the data
 
 the data set used can be found here: https://cloud.google.com/blog/topics/public-datasets/github-on-bigquery-analyze-all-the-open-source-code
 
